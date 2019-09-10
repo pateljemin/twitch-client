@@ -23,7 +23,7 @@ const ChatBox = (props: any) => {
         console.log(`steamer Id:#${streamerId}`);
         // @ts-ignore
         CHAT_CLIENT.say(`#${streamerId}`, value);
-        const color = randomColor();
+        const color = randomColor({ luminosity: 'dark' });
         props.dispatch(messageSent({
             user: `<span style="font-weight: bold;color: ${color}">${user.name}</span>`,
             message: value

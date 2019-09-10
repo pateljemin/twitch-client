@@ -44,15 +44,11 @@ export const getChatClient = async () => {
     chatClient.onPrivmsg((channel: any, user: any, message: any) => {
         if (message === '!ping') {
             chatClient.say(channel, 'Pong!');
-        } else if (message === '!dice') {
-            // const diceRoll = Math.floor(Math.random() * 6) + 1;
-            //chatClient.say(channel, `@${user} rolled a ${diceRoll}`)
         }
-        const color = randomColor();
+        const color = randomColor({ luminosity: 'dark' });
         store.dispatch(messageReceived({
             message, user: `<span style="font-weight: bold;color: ${color}">${user}</span>`
         }));
-        console.log(`[chat] channel:${channel} user:${user} message:${message}`);
     });
     chatClient.onSub((channel: any, user: any) => {
         store.dispatch(eventReceived(`Thanks to @${user} for subscribing to the channel!`));
@@ -63,31 +59,6 @@ export const getChatClient = async () => {
     chatClient.onSubGift((channel: any, user: any, subInfo: any) => {
         store.dispatch(eventReceived(`Thanks to ${subInfo.gifter} for gifting a subscription to ${user}!`));
     });
-
-    /*chatClient.onPrivmsg((channel: any, user: any, message: any) => {
-        if (message === '!ping') {
-            chatClient.say(channel, 'Pong!');
-        } else if (message === '!dice') {
-            const diceRoll = Math.floor(Math.random() * 6) + 1;
-            chatClient.say(channel, `@${user} rolled a ${diceRoll}`)
-        }
-        console.log(`[chat] ${channel} ${user} ${message}`);
-    });*/
-    /*chatClient.onSub((channel: any, user: any) => {
-        events.push(`Thanks to @${user} for subscribing to the channel!`);
-        chatClient.say(channel, `Thanks to @${user} for subscribing to the channel!`);
-        console.log(`Thanks to @${user} for subscribing to the channel!`);
-    });
-    chatClient.onResub((channel: any, user: any, subInfo: any) => {
-        events.push(`Thanks to @${user} for subscribing to the channel for a total of ${subInfo.months} months!`);
-        chatClient.say(channel, `Thanks to @${user} for subscribing to the channel for a total of ${subInfo.months} months!`);
-        console.log(`Thanks to @${user} for subscribing to the channel for a total of ${subInfo.months} months!`);
-    });
-    chatClient.onSubGift((channel: any, user: any, subInfo: any) => {
-        events.push(`Thanks to ${subInfo.gifter} for gifting a subscription to ${user}!`);
-        chatClient.say(channel, `Thanks to ${subInfo.gifter} for gifting a subscription to ${user}!`);
-        console.log(`Thanks to @${user} for subscribing to the channel for a total of ${subInfo.months} months!`);
-    });*/
     return chatClient;
 };
 
