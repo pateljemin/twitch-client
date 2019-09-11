@@ -1,8 +1,14 @@
 import * as React from 'react';
-import twitch from '../../twitch.png';
+import twitch from '../../assets/twitch.png';
 import './form.scss';
 import TextField from '@material-ui/core/TextField';
 
+/**
+ * Take User favourite streamer ID and store in localstorage.
+ *
+ * @param props
+ * @constructor
+ */
 const Form = (props: any) => {
 
     const [value, setValue] = React.useState(undefined);

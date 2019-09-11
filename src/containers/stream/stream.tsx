@@ -4,12 +4,19 @@ import ChatBox from "./chatBox";
 import EventsList from "./event";
 import { CHAT_CLIENT, connect } from "./realtimeEvent";
 
+/**
+ * Type of sidebar: Chats or Recent Events.
+ */
 export enum SideBarType {
     CHAT,
     EVENTS
 }
 
-const Stream = (props: any) => {
+/**
+ * Stream Page:  1) Show Live Stream 2) Show Chat 3) Show Events.
+ * @constructor
+ */
+const Stream = () => {
 
     const streamerId = localStorage.getItem('streamerId');
     const [sideBarType, setSideBarType] = React.useState(SideBarType.CHAT);

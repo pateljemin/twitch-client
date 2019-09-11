@@ -1,5 +1,7 @@
 import { createSelector } from "reselect";
 
+// This file contain different selectors which is used to select data from store.
+
 const selectSpace = (state: any) => state;
 
 const makeSelectMessages = () =>

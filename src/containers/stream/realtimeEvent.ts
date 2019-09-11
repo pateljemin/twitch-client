@@ -7,6 +7,12 @@ import { store } from '../../index';
 
 export let events = [] as any;
 
+/**
+ * This is the main core file of the application.
+ * 1) It listen for chat messages, Subscription Event, Re-Subscription Event, Gift Event. Once it receive the signal it
+ * send corresponding store action. This action will update the store with reducer.
+ * 2) On Store update it will re render the component and UI will be updated.
+ */
 export const getChatClient = async () => {
     const channelId = localStorage.getItem('streamerId');
     if (!channelId) {

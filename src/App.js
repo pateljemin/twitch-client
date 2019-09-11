@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
-import Home from './components/home/home';
+import Home from './containers/home/home';
 import { BrowserRouter as Router, Route} from "react-router-dom";
-import AuthCallBack from "./components/auth/authCallBack";
+import AuthCallBack from "./containers/auth/authCallBack";
 
 function App() {
     return (

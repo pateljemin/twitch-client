@@ -5,6 +5,13 @@ import { makeSelectEvents } from "../../store/selector";
 import { compose, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
+/**
+ * This container is connected with Redux store and renders every time there is new event Ex. Subscription,
+ * Re-Subscription, Gift.
+ *
+ * @param props
+ * @constructor
+ */
 const EventsList = (props: any) => {
     return (
         <div className={'event-container'}>

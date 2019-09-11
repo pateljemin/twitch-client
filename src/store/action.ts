@@ -1,5 +1,9 @@
 import { EVENT_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT } from "./actionType";
 
+/**
+ * This file has different actions which will be called on different events.
+ */
+
 export const messageReceived = (message: any) => {
     return {
         type: MESSAGE_RECEIVED,

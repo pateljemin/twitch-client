@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { CLIENT_ID, REDIRECT_URL, SCOPE } from "../../utils/constants";
-import twitch from '../../twitch.png';
+import twitch from '../../assets/twitch.png';
 import './login.scss';
 
-const Login = (props: any) => {
+/**
+ * Login page : Shows Twitch Login Button : Perform Twitch Auth on button click.
+ * @constructor
+ */
+const Login = () => {
 
    const authUrl = () => {
 

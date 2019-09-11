@@ -10,6 +10,13 @@ import { connect } from "react-redux";
 import Interweave from 'interweave';
 import randomColor from "randomcolor";
 
+/**
+ * Chat container: It is connected with Redux store. It renders every time new message arrives. It also send user
+ * messages.
+ *
+ * @param props
+ * @constructor
+ */
 const ChatBox = (props: any) => {
     const streamerId = localStorage.getItem('streamerId');
     const strUser = localStorage.getItem('user');
@@ -20,7 +27,6 @@ const ChatBox = (props: any) => {
         if (CHAT_CLIENT === undefined) {
             return;
         }
-        console.log(`steamer Id:#${streamerId}`);
         // @ts-ignore
         CHAT_CLIENT.say(`#${streamerId}`, value);
         const color = randomColor({ luminosity: 'dark' });
@@ -29,14 +35,13 @@ const ChatBox = (props: any) => {
             message: value
         }));
         setValue('');
-        console.log(`[init] Message sent`);
     };
 
     const handleChange = (event: any) => {
         setValue(event.target.value);
     };
 
-    const keyPress = (event: any) => {
+    const keyPress = (event: any) => { // Detect Enter press.
         if (event.keyCode === 13) {
             sendMessage();
         }

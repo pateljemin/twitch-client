@@ -5,6 +5,12 @@ export const initialState = {
     events: []
 };
 
+/**
+ * Reducer which is used to maintain store data. On each action it will update the store. It just maintain latest
+ * 100 chat messages to avoid browser crash. It also just maintain recent 10 events as per document.
+ * @param state : Current state.
+ * @param action : Action wil payload.
+ */
 const reducer = (state = initialState, action: any) => {
 
     console.log(`[chat] in reducer : ${JSON.stringify(action)}`);

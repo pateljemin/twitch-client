@@ -3,6 +3,13 @@ import { AppBar, IconButton, Toolbar, Tooltip, Typography } from "@material-ui/c
 import { PowerSettingsNew, Chat, EventAvailable, Edit } from '@material-ui/icons';
 import { SideBarType } from "./stream";
 
+/**
+ * This is the top bar in stream page. 1) Toggle Chat Button / Recent Event Button 2) Change Streamer Button 3) Display
+ * Current Streamer ID. 4) Show Logout Button.
+ *
+ * @param props
+ * @constructor
+ */
 const TopBar = (props: any) => {
     const token = localStorage.getItem('token');
     const streamerId = localStorage.getItem('streamerId');
